@@ -5,12 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="manifest" href="manifest.json">
+    <link rel="canonical" href="https://lucasmendezbaca.github.io/PWA-Store/">
+    <link rel="manifest" href="PWA-Store/manifest.webmanifest">
     <title>Document</title>
     <script>
         // Registering our Service worker
-        if('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js', { scope: './' })
+        if(navigator.serviceWorker) {
+            navigator.serviceWorker.register('/PWA-Store/sw.js', { scope: '/PWA-Store/' })
         }
     </script>
 </head>

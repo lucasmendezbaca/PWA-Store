@@ -1,29 +1,20 @@
-const cacheName = 'Temporas';
-
-// Cache all the files to make a PWA
-self.addEventListener('install', e => {
-  e.waitUntil(
-    caches.open(cacheName).then(cache => {
-      // Our application only has two files here index.html and manifest.json
-      // but you can add more such as style.css as your app grows
-      return cache.addAll([
-        './',
-        './index.html',
-        './manifest.json'
-      ]);
-    })
-  );
-});
-
-// Our service worker will intercept all fetch requests
-// and check if we have cached the file
-// if so it will serve the cached file
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.open(cacheName)
-      .then(cache => cache.match(event.request, { ignoreSearch: true }))
-      .then(response => {
-        return response || fetch(event.request);
-      })
-  );
-});
+// Change this to your repository name
+var GHPATH = '/PWA-Store';
+ 
+// Choose a different app prefix name
+var APP_PREFIX = 'gppwa_';
+ 
+// The version of the cache. Every time you change any of the files
+// you need to change this version (version_01, version_02…). 
+// If you don't change the version, the service worker will give your
+// users the old files!
+var VERSION = 'version_00';
+ 
+// The files to make available for offline use. make sure to add 
+// others to this list
+var URLS = [    
+  `${GHPATH}/`,
+  `${GHPATH}/index.html`,
+  `${GHPATH}/assets/style.css`,
+  `${GHPATH}/js/index.js`
+]
