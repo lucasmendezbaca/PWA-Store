@@ -1,0 +1,10 @@
+{
+    "name": "Store",
+    "short_name": "Store",
+    "theme_color": "#fff",
+    "background_color": "#fff",
+    "display": "browser",
+    "orientation": "portrait",
+    "scope": "/",
+    "start_url": "/index.html"
+}
